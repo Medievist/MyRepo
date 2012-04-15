@@ -234,7 +234,7 @@ imap <S-down> <esc><S-v>
 vmap <S-down> <down>
 vmap < <gv
 vmap > >gv
-
+noremap <silent> <F11> :cal VimCommanderToggle()<CR>
 
 map <S-Insert> <MiddleMouse>
 nmap ; :%s/\<<c-r>=expand("<cword>")<cr>\>/
