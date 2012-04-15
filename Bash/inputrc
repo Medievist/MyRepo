@@ -1,0 +1,101 @@
+## Mandriva Linux Configuration
+# (c) Mandriva 1999-2005
+# Chmouel Boudjnah, Pablo Saratxaga <pablo@mandriva.com> 
+#	$Id: inputrc 105875 2005-12-07 06:56:46Z flepied $	
+
+
+# Show all if ambigious.
+set show-all-if-ambiguous on
+
+# Add / to symlink to directory
+set mark-symlinked-directories on
+
+# 8Bits supports.
+set meta-flag on
+set convert-meta off
+set input-meta on
+set output-meta on
+
+# bash completions does not use more
+set page-completions off
+
+# definition of keys in vi mode if vi mode is set at login result
+# in totally messed up command line... so it safer to activate it
+# only for emacs mode; until the bug is fixed (in libreadline?)
+$if mode=emacs
+
+# Keyboard configuration
+"[2~": yank			# Insert
+"[3~":delete-char		# Suppr
+
+"[1~": beginning-of-line	# Home
+"[4~": end-of-line		# End
+
+# typing the beginning of a previous command then
+# PgUp/PgDw cycles trough history only for matching entries
+"[5~": history-search-backward	# Previous
+"[6~": history-search-forward		# Next
+
+# those two are for rxvt
+"\e[7~":beginning-of-line
+"\e[8~":end-of-line
+
+# on some xterm
+"\e[H": beginning-of-line
+"\e[F": end-of-line
+
+# on nxterms
+"\e[\C-@": beginning-of-line
+"\e[e": end-of-line
+
+$if term=xterm
+#
+# Application keypad and cursor of xterm
+# with NumLock ON
+#
+# Operators
+"\eOo":         "/"
+"\eOj":         "*"
+"\eOm":         "-"
+"\eOk":         "+"
+"\eOl":         "+"
+"\eOM":         accept-line
+
+# Colon and dot
+# "\eOl":	","
+"\eOn":		"."
+
+# Numbers
+"\eOp":         "0"
+"\eOq":         "1"
+"\eOr":         "2"
+"\eOs":         "3"
+"\eOt":         "4"
+"\eOu":         "5"
+"\eOv":         "6"
+"\eOw":         "7"
+"\eOx":         "8"
+"\eOy":         "9"
+$endif
+
+#
+# Application keypad and cursor of xterm
+#
+"\eOD":         backward-char
+"\eOC":         forward-char
+"\eOA":         previous-history
+"\eOB":         next-history
+"\eOE":         re-read-init-file
+
+# on gnome-terminal (mdvbz#36287)
+"\e[1;5D": backward-word
+"\e[1;5C": forward-word
+
+# emacs mode
+$endif
+
+#My settings
+TAB: menu-complete
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+#End My settings
