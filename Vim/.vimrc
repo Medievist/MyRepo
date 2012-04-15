@@ -24,8 +24,9 @@ set fo+=cr
 
 
 set nu
-set statusline=%<%f%h%m%r\ %b\ %{&encoding}\ 0x\ \ %l,%c%V\ %P 
 set laststatus=2
+"set statusline=%<%f%h%m%r\ %b\ %{&encoding}\ 0x\ \ %l,%c%V\ %P 
+set statusline=%{GitBranch()}\ %<%f%h%m%r\ %b\ %{&encoding}\ 0x\ \ %l,%c%V\ %P 
 
 " For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
 " let &guioptions = substitute(&guioptions, "t", "", "g")
@@ -304,3 +305,4 @@ imap <silent> <C-F> <C-^>X<Esc>:call MyKeyMapHighlight()<CR>a<C-H>
 nmap <silent> <C-F> a<C-^><Esc>:call MyKeyMapHighlight()<CR>
 vmap <silent> <C-F> <Esc>a<C-^><Esc>:call MyKeyMapHighlight()<CR>gv
 " <--
+
